@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'; //Importa a Biblioteca de Rotas mais usada no React
 
-class App extends Component {
-  render() {
+//Importa seus componentes
+import Login from './pages/Login';
+import Timeline from './pages/Timeline';
+
+class App extends Component { //componentes do React, sao Classes que estende a classe Componentes
+  render() { //metodo obrigatorio, que indica qual conteudo Html o React deve renderizar na tela quando esse componente for chamado
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/timeline" component={Timeline} />
+        </Switch>
+      </BrowserRouter> 
     );
   }
 }
